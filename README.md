@@ -13,7 +13,7 @@ the Opscode *users* cookbook.
 
 ## <a name="usage"></a> Usage
 
-Simply include `recipe[user]` in your run\_list and the `user_account`
+Simply include `recipe[chef-user]` in your run\_list and the `chef_user_account`
 resource will be available.
 
 To use `recipe[user::data_bag]`, include it in your run\_list and have a
@@ -233,7 +233,7 @@ The default is `"users"`.
 
 ## <a name="lwrps"></a> Resources and Providers
 
-### <a name="lwrps-ua"></a> user_account
+### <a name="lwrps-ua"></a> chef_user_account
 
 **Note:** in order to use the `password` attribute, you must have the
 [ruby-shadow gem][ruby-shadow_gem] installed. On Debian/Ubuntu you can get
@@ -374,7 +374,7 @@ this by installing the "libshadow-ruby1.8" package.
 
 ##### Creating a User Account
 
-    user_account 'hsolo' do
+    chef_user_account 'hsolo' do
       comment   'Han Solo'
       ssh_keys  ['3dc348d9af8027df7b9c...', '2154d3734d609eb5c452...']
       home      '/opt/hoth/hsolo'
@@ -382,13 +382,13 @@ this by installing the "libshadow-ruby1.8" package.
 
 ##### Creating and Locking a User Account
 
-    user_account 'lando' do
+    chef_user_account 'lando' do
       action  [:create, :lock]
     end
 
 ##### Removing a User account
 
-    user_account 'obiwan' do
+    chef_user_account 'obiwan' do
       action  :remove
     end
 

@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: user
+# Cookbook Name:: chef-user
 # Provider:: account
 #
 # Author:: Fletcher Nichol <fnichol@nichol.ca>
@@ -135,7 +135,7 @@ def authorized_keys_resource(exec_action)
   ssh_keys = Array(new_resource.ssh_keys)
 
   r = template "#{@my_home}/.ssh/authorized_keys" do
-    cookbook    'user'
+    cookbook    'chef-user'
     source      'authorized_keys.erb'
     owner       new_resource.username
     group       Etc.getpwnam(new_resource.username).gid
